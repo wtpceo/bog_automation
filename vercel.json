@@ -2,19 +2,11 @@
   "crons": [
     {
       "path": "/api/cron/generate-drafts",
-      "schedule": "0 22 * * 0"
+      "schedule": "0 13 * * 0"
     },
     {
-      "path": "/api/cron/send-alimtalk",
-      "schedule": "0 10 * * 1"
-    },
-    {
-      "path": "/api/cron/send-reminder",
-      "schedule": "0 10 * * 3"
-    },
-    {
-      "path": "/api/cron/auto-confirm",
-      "schedule": "0 10 * * 4"
+      "path": "/api/cron/daily-tasks",
+      "schedule": "0 1 * * 1-4"
     }
   ]
 }
