@@ -7,9 +7,11 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 )
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-})
+function getOpenAI() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+  })
+}
 
 // 인증 체크
 function checkAuth(request: NextRequest) {
@@ -199,6 +201,7 @@ ${excludeSection}
 JSON만 출력해. 다른 말 하지 마.`
 
   try {
+    const openai = getOpenAI()
     const response = await openai.chat.completions.create({
       model: 'gpt-4o',
       messages: [{ role: 'user', content: prompt }],
